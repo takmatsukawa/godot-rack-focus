@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://yw2g7bg8tpkq"]
+
+[ext_resource type="Script" uid="uid://ccufgmeaqq22j" path="res://main.gd" id="1_ig7tw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
+size = Vector3(0.5, 1.89, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
+size = Vector3(0.5, 1.88, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
+size = Vector3(0.5, 1.71, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h2yge"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7dm0k"]
+dof_blur_far_enabled = true
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_ig7tw")
+
+[node name="Jules" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61489, 0.958824, 0)
+mesh = SubResource("BoxMesh_7dm0k")
+
+[node name="Vincent" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.464491, 0.92139, 0)
+mesh = SubResource("BoxMesh_ig7tw")
+
+[node name="Wolf" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.324303, 0.866338, 4.18527)
+mesh = SubResource("BoxMesh_0xm2m")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_7dm0k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 8, 0)
+shadow_enabled = true
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(0.978867, 0, 0.204496, 0, 1, 0, -0.204496, 0, 0.978867, 0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.077)
+attributes = SubResource("CameraAttributesPractical_7dm0k")
+fov = 28.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dialogue" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -347.0
+offset_top = -173.0
+offset_right = 347.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 35
+horizontal_alignment = 1
