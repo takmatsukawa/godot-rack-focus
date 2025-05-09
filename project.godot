@@ -14,3 +14,8 @@ config/name="rack focus"
 run/main_scene="uid://yw2g7bg8tpkq"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=2304
+window/size/viewport_height=1296
